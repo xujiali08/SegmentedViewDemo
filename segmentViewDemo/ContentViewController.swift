@@ -10,7 +10,7 @@ import UIKit
 class ContentViewController: UIViewController {
     
     var segmentedDataSource: JXSegmentedBaseDataSource?
-    let segmentedView = ITSegmentedView()
+    let segmentedView = ITSegmentedView(titles: ["你好", "好呀"])
     var params: [String: Any]?
     
     lazy var listContainerView: JXSegmentedListContainerView! = {
@@ -25,9 +25,7 @@ class ContentViewController: UIViewController {
         let leftBar = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(closeAction))
         navigationController?.navigationBar.topItem?.leftBarButtonItem = leftBar
         
-        segmentedView.dataSource = segmentedDataSource
         segmentedView.delegate = self
-        segmentedView.titles = ["你好", "好呀"]
         segmentedView.isContentScrollViewClickTransitionAnimationEnabled = false
         view.addSubview(segmentedView)
         
@@ -60,11 +58,11 @@ class ContentViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         view.backgroundColor = .white
-//        segmentedView.translatesAutoresizingMaskIntoConstraints = false
-//        segmentedView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-//        segmentedView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-//        segmentedView.heightAnchor.constraint(equalToConstant: 50).isActive = true
-//        segmentedView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        segmentedView.translatesAutoresizingMaskIntoConstraints = false
+        segmentedView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        segmentedView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        segmentedView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        segmentedView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         
         listContainerView.translatesAutoresizingMaskIntoConstraints = false
         listContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true

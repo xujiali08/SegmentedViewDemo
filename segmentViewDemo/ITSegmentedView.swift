@@ -38,8 +38,8 @@ open class ITSegmentedView: JXSegmentedView {
     }
     
     func setUpUI() {
-        backgroundColor = UIColor.systemPink
-
+        backgroundColor = UIColor.white
+        self.defaultSelectedIndex = 0
         let lineView = JXSegmentedIndicatorLineView()
         lineView.indicatorColor = UIColor.brown
         lineView.indicatorHeight = 2
